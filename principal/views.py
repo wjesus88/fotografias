@@ -6,9 +6,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 
 
+from django.core.mail import EmailMessage
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+
+
 def inicio(request):
 	fotos=Fotografia.objects.all()
-	return render_to_response('inicio.html',{'fotos':fotos})
+	return render_to_response('inicio.html',{'fotos':fotos},context_instance=RequestContext(request))
 
 
 def lista_fotografias(request):

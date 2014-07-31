@@ -15,45 +15,37 @@
 {% endblock %}
 
 {% block contenido %}
-<a href="/receta/nueva">Agregar una receta</a>
-
-
-<div class="row">
-	<div class="col-lg-4">
-			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
-	</div>
-
-	<div class="col-lg-4">
-			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
-	</div>
-
-	
-</div>
+<a href="/fotografia/nueva">Agregar una receta</a>
 
 
 
 
+<div class="container">
+<!-- <ul class="slides"> -->
+	<!-- <div> -->
+	<!-- {% for dato in datos %} -->
+	<!-- <li> -->
+	<!-- <div> -->
+		<!-- <p>{{dato.titulo}}</p> -->
+
+		<div class="row"> 
+        <!-- {% for dato in datos %} -->
+	        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	        	<a class="thumbnail" href="#">
+	                    <img width="400px" height="300px" class="img-responsive" src='{{MEDIA_URL}}{{dato.imagen}}' >
+				</a>
+	        </div>  
 
 
+        <!-- {% endfor %}  -->
+		</div> 
+		<!-- </div> -->
 
-<div class="flexslider">
-<ul class="slides">
-	{% for dato in datos %}
-	<li>
-		<p>{{dato.titulo}}</p>
-		<div class="row">
-        <div class="col-lg-4">
-			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
-		</div>
-
-	
-		</div>
-
-	</li>
-	{% empty %}
+	<!-- </li> -->
+<!-- 	{% empty %}
 	<li>aun no hay fotografias</li>
-	{% endfor %}
-</ul>
+	{% endfor %} -->
+<!-- </ul> -->
 </div>
 
 {% endblock %}

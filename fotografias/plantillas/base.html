@@ -2,67 +2,56 @@
 <html lang='es'>
 <head>
 <title>Fotografia {% block titulo %}{% endblock %}</title>
-
-<link rel='stylesheet' href='{{STATIC_URL}}css/base.css'>
-<link rel='stylesheet' href='{{STATIC_URL}}bootstrap/css/bootstrap.css'>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='{{ STATIC_URL }}css/base.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.min.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/thumbnail-gallery.css'>
+<link rel='stylesheet' href='{{STATIC_URL}}bootstrap/css/theme.css'>
 
 
 
 </head>
 <body>
 
-	<header>
-		<nav>
-			<ul id="menu" class="slides">
-				<li href='/'>Inicio</li>
-				<li href='/usuarios'>usuarios registrados</li>
-				<li><a href="/fotografias">ggg</a></li>
-				<li ></li>
-				<li></li>
-			</ul>			
-		</nav>
-	</header>
+	<!-- <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner"> -->
+	<!-- <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"> -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">      
 
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                
+            	<ul class="nav navbar-nav">       
+		        	<li><a href='/'>Inicio</a></li>
+		        
+		            <li class="dropdown">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		            	<li><a href="#">Action</a></li>
+		            	<li><a href="#">Another action</a></li>
+		            	<li><a href="#">Something else here</a></li>
+		            	<li><a href="#">Separated link</a></li>
+		            	<li><a href="#">One more separated link</a></li>
+		            </ul>
+		        	</li>
+		        	<li><a href='/'>Inicio</a></li>
+					<li><a href='/usuarios'>usuarios registrados</a></li>
+					<li><a href="/fotografias">fotografias</a></li>
+		        	<li><a href='/usuarios'>Usuarios registrados</a></li>
+		        	<li><a href='/recetas'>Recetas</a></li>
+		        	<li><a href="/comenta">Comenta</a></li>
+		        	    
+		        	<li class="active"><a href="#">Customize</a></li>
+		        </ul>
 
-		<div class="wrapper wrapper-style2">
-				
-				<h3 >#Tecnologia, #App, #web , #responsive, #css</h3>
-				<article id="work">
-		
-					<div class="bg-content">
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
 
-						<div class="row">
-							  
-							<div class="4u">
-								<section class="box box-style1">
-									<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/disenoweb.jpg" style="width: 140px; height: 140px;">
-									<h3 ><a href="#">Portafolio</a></h3>
-									<p>Recopilacion de servicios ofrecidos a nuestros clientes a medida de sus requerimientos .</p>
-								</section>
-							</div>
-							<div class="4u">
-								<section class="box box-style1">
-									 <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/responsive.jpg" style="width: 140px; height: 140px;">
-									<h3><a href="#">Responsive Design</a></h3>
-									<p>diseño web adaptable usando  estructuras e imágenes fluidas, adaptando el sitio web al entorno del usuario.</p>
-								</section>
-							</div>
-							<div class="4u">
-								<section class="box box-style1">
-								    <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/redes-sociales1.jpg" style="width: 140px; height: 140px;">
-									
-									<h3><a href="#">Redes Sociales</a></h3>
-									<p>Ofrecele a tu negocio un giro promocionandolo con una herramienta de marketing a bajo coste  .</p>
-								</section>
-							</div>
-						</div>
-					</div>
-					<footer>
-						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-						<a href="#portfolio" class="button button-big">See some of my recent work</a>
-					</footer>
-				</article>
-			</div>
+	<!-- </header> --> 	
 
 
 	<section class='contenido'>
