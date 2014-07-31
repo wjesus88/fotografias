@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% comment %} Aqui van comentarios {% endcomment %}
+
+{% block titulo %} inicio {% endblock %}
+
+
+{% block encabezado %}
+	<h1>Recetario ;)	</h1>
+{% endblock %}
+
+{% block contenido %}
+<a href="/fotografia/nueva">Agregar una fotografia</a>
+	<p>
+		Actualmente ..
+		{% with total=fotos.count %}
+			{{total}} Fotografi{{total|pluralize}}
+		{% endwith %}
+	</p>
+
+	<ul>
+		{% for dato in fotos %}
+		<li >{{dato.titulo|title}}</li>
+		{% empty %}
+		<li> no hay recetas</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
+

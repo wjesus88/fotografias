@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<title>Fotografia {% block titulo %}{% endblock %}</title>
+
+<link rel='stylesheet' href='{{STATIC_URL}}css/base.css'>
+<link rel='stylesheet' href='{{STATIC_URL}}bootstrap/css/bootstrap.css'>
+
+
+
+</head>
+<body>
+
+	<header>
+		<nav>
+			<ul id="menu" class="slides">
+				<li href='/'>Inicio</li>
+				<li href='/usuarios'>usuarios registrados</li>
+				<li><a href="/fotografias">ggg</a></li>
+				<li ></li>
+				<li></li>
+			</ul>			
+		</nav>
+	</header>
+
+
+		<div class="wrapper wrapper-style2">
+				
+				<h3 >#Tecnologia, #App, #web , #responsive, #css</h3>
+				<article id="work">
+		
+					<div class="bg-content">
+
+						<div class="row">
+							  
+							<div class="4u">
+								<section class="box box-style1">
+									<img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/disenoweb.jpg" style="width: 140px; height: 140px;">
+									<h3 ><a href="#">Portafolio</a></h3>
+									<p>Recopilacion de servicios ofrecidos a nuestros clientes a medida de sus requerimientos .</p>
+								</section>
+							</div>
+							<div class="4u">
+								<section class="box box-style1">
+									 <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/responsive.jpg" style="width: 140px; height: 140px;">
+									<h3><a href="#">Responsive Design</a></h3>
+									<p>diseño web adaptable usando  estructuras e imágenes fluidas, adaptando el sitio web al entorno del usuario.</p>
+								</section>
+							</div>
+							<div class="4u">
+								<section class="box box-style1">
+								    <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="img/redes-sociales1.jpg" style="width: 140px; height: 140px;">
+									
+									<h3><a href="#">Redes Sociales</a></h3>
+									<p>Ofrecele a tu negocio un giro promocionandolo con una herramienta de marketing a bajo coste  .</p>
+								</section>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+						<a href="#portfolio" class="button button-big">See some of my recent work</a>
+					</footer>
+				</article>
+			</div>
+
+
+	<section class='contenido'>
+		{% block contenido %}{% endblock %}
+	</section>
+	<footer>
+		<p>proyecto de ejemplo</p>
+	</footer>
+</body>
+</html>

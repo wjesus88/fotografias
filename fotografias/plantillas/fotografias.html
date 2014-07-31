@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Fotografias {% endblock %}
+
+
+{% block css %}
+  <style>
+	img { width:100px; }
+  </style>
+{% endblock %}
+
+
+{% block encabezado %}
+	<h1>Fotografias</h1>
+{% endblock %}
+
+{% block contenido %}
+<a href="/receta/nueva">Agregar una receta</a>
+
+
+<div class="row">
+	<div class="col-lg-4">
+			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
+	</div>
+
+	<div class="col-lg-4">
+			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
+	</div>
+
+	
+</div>
+
+
+
+
+
+
+
+<div class="flexslider">
+<ul class="slides">
+	{% for dato in datos %}
+	<li>
+		<p>{{dato.titulo}}</p>
+		<div class="row">
+        <div class="col-lg-4">
+			<img width="100px" height="100px" src='{{MEDIA_URL}}{{dato.imagen}}' class="img-circle" alt="Responsive image">
+		</div>
+
+	
+		</div>
+
+	</li>
+	{% empty %}
+	<li>aun no hay fotografias</li>
+	{% endfor %}
+</ul>
+</div>
+
+{% endblock %}
