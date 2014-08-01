@@ -1,5 +1,5 @@
 from principal.models import Fotografia
-from principal.forms import FotografiaForm
+from principal.forms import FotografiaForm,ContactoForm
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -31,3 +31,29 @@ def nueva_fotografia(request):
 	else:
 		formulario=FotografiaForm()
 	return render_to_response('fotografiaform.html',{'formulario':formulario},context_instance=RequestContext(request))
+
+
+
+
+def detalle_fotografia(request, id_fotografia):
+    dato = get_object_or_404(Fotografia, pk=id_fotografia)
+    comentarios = Comentario.objects.filter(foto=dato)
+    return render_to_response('fotografia.html',{'receta':dato,'comentarios':comentarios}, context_instance=RequestContext(request))
+
+
+def contacto(request):
+	if request.method=='POST':
+		formulario = ContactoForm(request.POST)
+		if formulario.is_valid():
+			titulo = 'Mensaje desde el recetario de Maestros del Web'
+			contenido = formulario.cleaned_data['mensaje'] + "\n"
+			contenido += 'Comunicarse a: ' + formulario.cleaned_data['correo']
+			correo = EmailMessage(titulo, contenido, to=['destinatario@email.com'])
+			correo.send()			
+			return 	HttpResponseRedirect('/')
+	else:
+		formulario=ContactoForm()
+
+	return render_to_response('contactoform.html',{'formulario':formulario},context_instance=RequestContext(request))
+
+

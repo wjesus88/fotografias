@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %} {{fotografia.titulo}} {% endblock %}
+
+{% block encabezado %} 
+  <h1>{{fotografia.titulo|title}}</h1>
+{% endblock %}
+
+{% block contenido %}
+	<div id='ingredientes'>
+		<h2>Ingredientes</h2>
+		<p>{{fotografia.ingredientes}}</p>
+	</div>
+	<div id='preparacion'>
+		<h2>Preparación</h2>
+		<p>{{fotografia.preparacion}}</p>
+	</div>
+	<div id='referencia'>
+		<img src='{{MEDIA_URL}}{{fotografia.imagen}}'>
+	</div>
+	<div id='comentarios'>
+		<h2>Comentarios</h2>
+			{% for item in comentarios %}
+				<p>{{item.texto}}</p>
+			{% empty %}
+				<p>Sin comentarios registrados</p>
+			{% endfor %}
+	</div>
+	<footer>
+	  <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
+	</footer>
+{% endblock %}

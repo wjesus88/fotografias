@@ -11,9 +11,7 @@ urlpatterns = patterns('',
     url(r'^$','principal.views.inicio'),
     # Examples:
     # url(r'^$', 'fotografias.views.home', name='home'),
-    # url(r'^fotografias/', include('fotografias.foo.urls')),
-
-  
+    # url(r'^fotografias/', include('fotografias.foo.urls')),  
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',
@@ -22,4 +20,6 @@ urlpatterns = patterns('',
        
     url(r'^fotografia/nueva/$','principal.views.nueva_fotografia'),
     url(r'^fotografias/$','principal.views.lista_fotografias'),
+    url(r'^contacto/$','principal.views.contacto'),
+    url(r'^fotografia/(?P<id_fotografia>\d+)$','principal.views.detalle_fotografia'),
 )

@@ -17,35 +17,20 @@
 {% block contenido %}
 <a href="/fotografia/nueva">Agregar una receta</a>
 
-
-
-
 <div class="container">
-<!-- <ul class="slides"> -->
-	<!-- <div> -->
-	<!-- {% for dato in datos %} -->
-	<!-- <li> -->
-	<!-- <div> -->
-		<!-- <p>{{dato.titulo}}</p> -->
+   <div class="row">
 
-		<div class="row"> 
-        <!-- {% for dato in datos %} -->
-	        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	        	<a class="thumbnail" href="#">
-	                    <img width="400px" height="300px" class="img-responsive" src='{{MEDIA_URL}}{{dato.imagen}}' >
-				</a>
-	        </div>  
+   			{% for dato in datos %}
+	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	                <a class="thumbnail" href='{% url principal.views.detalle_fotografia dato.id %}'>
+	                    <img style="width: 400px; height: 300px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
+	                </a>
+	            </div>
+        {% endfor %}            
+   
+    </div>
 
-
-        <!-- {% endfor %}  -->
-		</div> 
-		<!-- </div> -->
-
-	<!-- </li> -->
-<!-- 	{% empty %}
-	<li>aun no hay fotografias</li>
-	{% endfor %} -->
-<!-- </ul> -->
 </div>
+
 
 {% endblock %}

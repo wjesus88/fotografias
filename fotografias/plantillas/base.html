@@ -2,6 +2,7 @@
 <html lang='es'>
 <head>
 <title>Fotografia {% block titulo %}{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='{{ STATIC_URL }}css/base.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.css'>
@@ -24,8 +25,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                
             	<ul class="nav navbar-nav">       
-		        	<li><a href='/'>Inicio</a></li>
-		        
+		        	<li><a href='/'>Inicio</a></li>		        
 		            <li class="dropdown">
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 		            <ul class="dropdown-menu">
@@ -41,7 +41,7 @@
 					<li><a href="/fotografias">fotografias</a></li>
 		        	<li><a href='/usuarios'>Usuarios registrados</a></li>
 		        	<li><a href='/recetas'>Recetas</a></li>
-		        	<li><a href="/comenta">Comenta</a></li>
+		        	<li><a href="/contacto">Contacto</a></li>
 		        	    
 		        	<li class="active"><a href="#">Customize</a></li>
 		        </ul>
@@ -51,7 +51,10 @@
         </div>
     </nav>
 
-	<!-- </header> --> 	
+	<!-- </header> --> 
+
+
+	
 
 
 	<section class='contenido'>
