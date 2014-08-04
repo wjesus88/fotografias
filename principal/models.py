@@ -12,16 +12,9 @@ class Fotografia(models.Model):
 	def __unicode__(self):
 		return self.titulo
 
+
 class Comentario(models.Model):
     fotografia = models.ForeignKey(Fotografia)
-    texto = models.TextField(help_text='Tu comentario', verbose_name='Comentario')
-
-    def __unicode__(self):
-        return self.texto
-
-
-class Comentario(models.Model):
-    foto = models.ForeignKey(Fotografia)
     texto = models.TextField(help_text='Tu comentario', verbose_name='Comentario')
 
     def __unicode__(self):

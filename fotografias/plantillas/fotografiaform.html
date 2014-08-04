@@ -5,9 +5,31 @@
 
 
 {% block contenido %}
-	<form id='formulario' method='post' enctype="multipart/form-data" action="">
+	<form role="form" class="form-contact" id='formulario' method='post' enctype="multipart/form-data" action="">
+	 
+		<!-- {{formulario.as_p}}  -->
+		
+
+		<div class="form-group">
 		{% csrf_token %}
-		{{formulario.as_p}}
-		<p><input type='submit' value='Registrar'/></p>
+		<label for="tiutlo">titulo</label>
+		<input class="form-control"  type="text" name="titulo" id="id_titulo" value="{{form.titulo}}" />
+		</div>
+		<div class="form-group">
+		<textarea class="form-control" name="descripcion"narows="3"></textarea>
+		</div>
+		<div class="form-group">
+		    <label for="exampleInputFile">File input</label>
+		    <input type="file" id="id_imagen" name="imagen">
+		    <p class="help-block">Example block-level help text here.</p>
+		</div>
+
+		<select class="form-control" name="usuario">
+		  <option>1</option>
+
+		</select>
+
+
+		<p><input type='submit' class="btn btn-default" value='Registrar'/></p>
 	</form>
 {% endblock %}

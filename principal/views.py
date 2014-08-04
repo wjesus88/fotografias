@@ -1,11 +1,9 @@
-from principal.models import Fotografia
+from principal.models import Fotografia,Comentario
 from principal.forms import FotografiaForm,ContactoForm
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
 from django.template import RequestContext
-
-
 from django.core.mail import EmailMessage
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
@@ -33,12 +31,10 @@ def nueva_fotografia(request):
 	return render_to_response('fotografiaform.html',{'formulario':formulario},context_instance=RequestContext(request))
 
 
-
-
 def detalle_fotografia(request, id_fotografia):
     dato = get_object_or_404(Fotografia, pk=id_fotografia)
-    comentarios = Comentario.objects.filter(foto=dato)
-    return render_to_response('fotografia.html',{'receta':dato,'comentarios':comentarios}, context_instance=RequestContext(request))
+    comentarios = Comentario.objects.filter(fotografia=dato)
+    return render_to_response('fotografia.html',{'fotografia':dato,'comentarios':comentarios}, context_instance=RequestContext(request))
 
 
 def contacto(request):

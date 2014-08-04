@@ -15,14 +15,15 @@
 {% endblock %}
 
 {% block contenido %}
-<a href="/fotografia/nueva">Agregar una receta</a>
+<button type="button" class="btn btn-success"><a href="/fotografia/nueva">Agregar una fotografia</a></button>
+
 
 <div class="container">
    <div class="row">
 
    			{% for dato in datos %}
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-	                <a class="thumbnail" href='{% url principal.views.detalle_fotografia dato.id %}'>
+	                <a class="thumbnail" href='{% url "principal.views.detalle_fotografia" dato.id %}'>
 	                    <img style="width: 400px; height: 300px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
 	                </a>
 	            </div>
