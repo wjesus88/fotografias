@@ -23,6 +23,7 @@ def lista_fotografias(request):
 def nueva_fotografia(request):
 	if request.method=='POST':
 		formulario=FotografiaForm(request.POST,request.FILES)
+		print "sdfsfs"
 		if formulario.is_valid():
 			formulario.save()
 			return HttpResponseRedirect('/fotografias')
@@ -35,6 +36,9 @@ def detalle_fotografia(request, id_fotografia):
     dato = get_object_or_404(Fotografia, pk=id_fotografia)
     comentarios = Comentario.objects.filter(fotografia=dato)
     return render_to_response('fotografia.html',{'fotografia':dato,'comentarios':comentarios}, context_instance=RequestContext(request))
+
+
+def delete_fotografia(request, id_fotografia):  
 
 
 def contacto(request):
