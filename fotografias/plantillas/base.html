@@ -5,6 +5,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='{{ STATIC_URL }}css/base.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}css/estructura.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.min.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/thumbnail-gallery.css'>
@@ -51,17 +52,33 @@
         </div>
     </nav>
 
-	<!-- </header> --> 
-
-
-	
-
+	<!--<aside>
+            <div id="slides">
+                <img src="images/slide1.jpg" title="Slide1">
+                <img src="images/slide2.jpg" title="Slide2">
+            </div>
+    </aside> -->
+	<!-- </header> -->
 
 	<section class='contenido'>
-		{% block contenido %}{% endblock %}
+		<article>			
+			{% block contenido %}{% endblock %}
+		</article>
 	</section>
+	
+
 	<footer>
-		<p>proyecto de ejemplo</p>
-	</footer>
+        <article>
+            <section class="elementoPie">                        
+                </section>
+                <section class="elementoPie" id="busquedasRecientes">
+                <h2>Última búsqueda</h2>
+            </section>
+            <section class="elementoPie">
+                <canvas id="lienzo" width="300px" height="210px">
+                </canvas>
+            </section>
+        </article> 
+    </footer>
 </body>
 </html>

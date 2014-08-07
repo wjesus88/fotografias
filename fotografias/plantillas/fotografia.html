@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block titulo %} {{fotografia.titulo}} {% endblock %}
 
 {% block encabezado %} 
@@ -7,26 +10,62 @@
 {% endblock %}
 
 {% block contenido %}
-	<div id='ingredientes'>
-		<h2>Ingredientes</h2>
-		<p>{{fotografia.ingredientes}}</p>
+
+<div id="content">  
+    <div id="mainContent">  
+	<section id='fotografiadetalle'>
+
+		<article class='bloque'>
+			<img style="width: 400px; height: 300px;" src='{{MEDIA_URL}}{{fotografia.imagen}}'>
+		</article>
+
+		<article class='bloque'>
+			<h2>Titulo Fotografia</h2>
+			<p>{{fotografia.titulo}}</p>
+			<h2>Descripcion</h2>
+			<p>{{fotografia.descripcion}}</p>
+		</article>
+
+
+		<article class='bloquecomentario'>
+			<h2>Comentarios</h2>
+				{% for item in comentarios %}
+					<p>{{item.texto}}</p>
+				{% empty %}
+					<p>Sin comentarios registrados</p>
+				{% endfor %}
+		</article>
+
+
+
+
+		<section id="comments">  
+			<header>  
+				<h3>Commentarios</h3>  
+			</header>  
+			<article>  
+				<header>  
+					<a href="#">George Washington</a> on <time datetime="2009-06-29T23:35:20+01:00">June 29th 2009 at 23:35</time>  
+				</header>  
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut                 enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>  
+			</article>  
+			<article>  
+				<header>  
+					<a href="#">Benjamin Franklin</a> on <time datetime="2009-06-29T23:40:09+01:00">June 29th 2009 at 23:40</time>  
+				</header>  
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>  
+			</article>  
+		</section> 
+
+
 	</div>
-	<div id='preparacion'>
-		<h2>Preparación</h2>
-		<p>{{fotografia.preparacion}}</p>
-	</div>
-	<div id='referencia'>
-		<img src='{{MEDIA_URL}}{{fotografia.imagen}}'>
-	</div>
-	<div id='comentarios'>
-		<h2>Comentarios</h2>
-			{% for item in comentarios %}
-				<p>{{item.texto}}</p>
-			{% empty %}
-				<p>Sin comentarios registrados</p>
-			{% endfor %}
-	</div>
-	<footer>
+	<aside>
+            <p>el contenido de aside es algo que no tiene gran relevancia en la pagina, como un submenu, buscador, 
+            formulario de contacto etc...</p>
+    </aside>
+</div>
+
+<!-- 	<footer>
 	  <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
-	</footer>
+	</footer> -->
 {% endblock %}

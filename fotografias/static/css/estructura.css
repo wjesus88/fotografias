@@ -1,0 +1,70 @@
+@font-face{
+    font-family: "Museo"; 
+    src: url("{{STATIC_URL}}media/Museo700-Regular.otf");
+}
+
+
+
+	.elementoPie{
+        float:left;
+        position: relative;
+        width: 300px;
+        margin: 0 10px 0 0;
+        text-align: center;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 5px;
+        -o-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+
+    }
+
+
+    #content {  
+        display: table;  
+    }  
+      
+        #mainContent {  
+            display: table-cell;  
+            width: 800px;  
+            padding-right: 22px;  
+              background: #FFFFFF;
+        }  
+      
+        aside {  
+            display: table-cell;  
+            width: 300px;  
+            background: #FFE3E8; 
+        }  
+
+
+
+section#comments article:nth-child(n+1) {  
+        padding: 21px;  
+        background: #E3E3E3;  
+        border: 6px solid #d7d7d7;
+        margin: 0 0 0 10%  
+      
+        /* Border-radius not implemented yet */  
+        -moz-border-radius: 11px;  
+        -webkit-border-radius: 11px;  
+    }  
+
+
+
+	.bloque{
+  
+        position: relative;
+        width: 300px;
+        margin: 0 50px 50px 10%;
+        text-align: center;
+        padding-top: 30px;
+      
+    }
+
+
+
+
+
+   

@@ -7,14 +7,30 @@
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
     background:#649CB7;
+  
 }
+
+
 
 .thumb {
     margin-bottom: 30px;
 }
 
+@font-face{
+    font-family: "Museo"; 
+    src: url("{{STATIC_URL}}media/Museo700-Regular.otf");
+}
+
+
+
+
 footer {
     margin: 50px 0;
+    clear: both;
+    height: 220px;
+    padding-top: 10px;
+    background:#545885;
+    float:left;
 }
 
 
