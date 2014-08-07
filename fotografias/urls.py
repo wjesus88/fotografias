@@ -22,4 +22,5 @@ urlpatterns = patterns('',
     url(r'^fotografias/$','principal.views.lista_fotografias'),
     url(r'^contacto/$','principal.views.contacto'),
     url(r'^fotografia/(?P<id_fotografia>\d+)$','principal.views.detalle_fotografia'),
+    # url(r'^fotografiadelete/(?P<id_fotografia>\d+)$','principal.views.delete_fotografia'),
 )
