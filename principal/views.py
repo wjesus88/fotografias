@@ -38,7 +38,7 @@ def detalle_fotografia(request, id_fotografia):
     return render_to_response('fotografia.html',{'fotografia':dato,'comentarios':comentarios}, context_instance=RequestContext(request))
 
 
-def delete_fotografia(request, id_fotografia):  
+# def delete_fotografia(request, id_fotografia):  
 
 
 def contacto(request):
