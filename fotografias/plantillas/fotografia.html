@@ -11,6 +11,7 @@
 
 {% block contenido %}
 
+
 <div id="content">  
     <div id="mainContent">  
 	<section id='fotografiadetalle'>
@@ -68,4 +69,76 @@
 <!-- 	<footer>
 	  <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
 	</footer> -->
+
+<div class="container">
+	<div class="row clearfix">
+		<!-- <dl> -->
+		<div class="col-md-5 column">
+
+				<div class="thumbnail"  id='referencia'>
+					<img  style="height: auto;" class="img-responsive" class="img-rounded" src='{{MEDIA_URL}}{{fotografia.imagen}}'>
+				</div>
+				</dt>
+
+				<dt>
+
+				
+				<div id='comentarios'>
+					<h2>Comentarios</h2>
+						{% for item in comentarios %}
+							<p>{{item.texto}}</p>
+						{% empty %}
+							<p>Sin comentarios registrados</p>
+						{% endfor %}
+
+				</div>			
+		
+		</div>
+
+		<div class="col-md-4 column">
+
+			
+				<div id='ingredientes'>
+					<h2>Ingredientes</h2>
+					<p>{{fotografia.ingredientes}}</p>
+				</div>
+				
+				
+				<div id='preparacion'>
+					<h2>Preparación</h2>
+					<p>{{fotografia.preparacion}}</p>
+					<p>
+							Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+					</p>
+				</div>
+				
+				
+		</div>
+
+
+		<div class="col-md-3 column">			
+			<p>
+				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+			</p>
+		</div>
+
+		<!-- </dl> -->
+	</div>
+
+
+	<div class="row clearfix">
+		<div class="col-md-6 column">
+			<textarea class="form-control" rows="5"></textarea>			
+		</div>
+		<div class="col-md-6 column">
+		</div>
+	</div>
+
+
+	<footer>
+	    <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
+	</footer>
+</div>
+
+
 {% endblock %}
