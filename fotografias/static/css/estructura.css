@@ -27,14 +27,14 @@
       
         #mainContent {  
             display: table-cell;  
-            width: 800px;  
+            /*width: 800px;  */
             padding-right: 22px;  
-              background: #FFFFFF;
+            background: #FFFFFF;
         }  
       
         aside {  
             display: table-cell;  
-            width: 300px;  
+            width: 10%;  
             background: #FFE3E8; 
         }  
 

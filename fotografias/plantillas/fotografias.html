@@ -24,16 +24,12 @@
    			{% for dato in datos %}
 	            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                  
-	                <a class="thumbnail" href='{% url principal.views.detalle_fotografia dato.id %}'>{{dato.titulo}}
+	                <a class="thumbnail" href='{% url "principal.views.detalle_fotografia" dato.id %}'>{{dato.titulo}}
 	                    <img style="width: 400px; height: 300px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
 
 	                </a>
 
-                  <a class="thumbnail" href='{% url principal.views.detalle_fotografia dato.id %}'>{{dato.titulo}}
-                      <img style="width: 400px; height: 300px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
-
-                  </a>
-
+                
                   <button type="button" class="btn btn-default btn-lg">
                     <input type="hidden" value="{{alert.id}}" name="alert_id">
                     <span class="glyphicon glyphicon-star"></span> eliminar
