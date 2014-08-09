@@ -4,6 +4,7 @@ body, header, footer, div, h1, h2, ul, li, a {
 }
 header {
 	background-color:#008500;
+	/*#DDDDDD*/
 	color:#ffffff;
 }
 nav ul li a{
