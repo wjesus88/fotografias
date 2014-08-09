@@ -51,8 +51,8 @@ def edit(request, id):
         'links/editarfotografia.html',
         {'action': 'update/' + id,
         'button': 'Update',
-        'description': link.link_description,
-        'url': link.link_url
+        'descripcion': foto.descripcion,
+        'titulo': foto.titulo
         }
     )
 
