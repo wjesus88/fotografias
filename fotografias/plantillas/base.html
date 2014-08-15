@@ -9,7 +9,7 @@
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.min.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/thumbnail-gallery.css'>
-<link rel='stylesheet' href='{{STATIC_URL}}bootstrap/css/theme.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/theme.css'>
 
 
 
@@ -61,7 +61,7 @@
 	<!-- </header> -->
 
 	<section class='contenido'>
-		<article>			
+		<article class="container">			
 			{% block contenido %}{% endblock %}
 		</article>
 	</section>
@@ -79,6 +79,10 @@
                 </canvas>
             </section>
         </article> 
+
+
+	    <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
+	
     </footer>
 </body>
 </html>

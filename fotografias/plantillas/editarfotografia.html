@@ -1,6 +1,35 @@
-<form action="/fotografia/{{ action }}/" method="post">
+{% extends 'base.html' %}
 
-	<input name="titulo" value="{{ titulo }}"><br />
-	<input name="descripcion" value="{{ descripcion }}"><br />
+{% block contenido %}
 
-</form>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-1 column">
+		</div>
+		<div class="col-md-4 column">
+			<form role="form" id="formulario" action="/fotografia/{{ action }}/" method="get">
+				{% csrf_token %}
+				{{formulario.as_p}}
+
+
+			
+		<!-- 		<div class="form-group">
+					<label for="exampleInputEmail1"> Titulo:</label>
+					<input  class="form-control" name="{{ titulo }}" value="{{ titulo }}"><br />
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1"> Description:</label>
+					<input  class="form-control" name="{{ descripcion }} " value="{{ descripcion }}"><br />
+				</div> -->
+
+				<div class="form-group">
+					<input type=submit value="{{ button }}">					
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+</div>
+{% endblock %}

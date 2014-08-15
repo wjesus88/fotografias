@@ -8,14 +8,16 @@
 	<form role="form" class="form-contact" id='formulario' method='post' enctype="multipart/form-data" action="">
 	 
 		{% csrf_token %}
-		{{formulario.as_p}} 
-		
+<!-- 
+		{{formulario.as_p}}
+		 -->
 
-	<!-- 	<div class="form-group">
+		<div class="form-group">
 		<label for="titulo">titulo</label>
-		<input class="form-control"  type="text" name="titulo" id="id_titulo" value="{{formulario.titulo}}"/>
+		<input class="form-control"  type="text" name="titulo" id="id_titulo" value=""/>
 		</div>
 		<div class="form-group">
+		<label for="titulo">Descripcion</label>
 		<textarea class="form-control" name="descripcion" id="id_descripcion" narows="3"   ></textarea>
 		</div>
 		<div class="form-group">
@@ -30,7 +32,9 @@
 		  <option>---</option>
 
 		</select>
-		</div> -->
+		</div> 
+
+
 
 
 		<p><input type='submit' class="btn btn-default" value='Registrar'/></p>

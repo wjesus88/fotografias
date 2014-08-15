@@ -23,5 +23,7 @@ urlpatterns = patterns('',
     url(r'^contacto/$','principal.views.contacto'),
     url(r'^fotografia/(?P<id_fotografia>\d+)$','principal.views.detalle_fotografia'),
     url (r'^fotografia/delete/(?P<id>\d+)', 'principal.views.delete'),
+    url (r'^fotografia/edit/(?P<id>\d+)', 'principal.views.edit'),
+    url (r'^fotografia/update/(?P<id>\d+)', 'principal.views.update'),
     # url(r'^fotografiadelete/(?P<id_fotografia>\d+)$','principal.views.delete_fotografia'),
 )
