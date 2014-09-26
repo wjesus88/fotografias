@@ -8,33 +8,34 @@
 	<form role="form" class="form-contact" id='formulario' method='post' enctype="multipart/form-data" action="">
 	 
 		{% csrf_token %}
-<!-- 
 		{{formulario.as_p}}
-		 -->
 
-		<div class="form-group">
+		
+
+		 
+<!-- 
+ 		<div class="form-group">
 		<label for="titulo">titulo</label>
-		<input class="form-control"  type="text" name="titulo" id="id_titulo" value=""/>
+		<input class="form-control"  type="text" name="titulo" id="id_titulo" value="{{ FotografiaForm.titulo }}"/>
 		</div>
 		<div class="form-group">
 		<label for="titulo">Descripcion</label>
-		<textarea class="form-control" name="descripcion" id="id_descripcion" narows="3"   ></textarea>
+		<textarea class="form-control" name="descripcion" id="id_descripcion" narows="3"  value="{{ FotografiaForm.descripcion }}"  ></textarea>
 		</div>
 		<div class="form-group">
 		    <label for="exampleInputFile">File input</label>
-		    <input type="file" id="id_imagen" name="imagen">
+		    <input type="file" id="id_imagen" name="imagen" value="{{ FotografiaForm.imagen }}" >
 		    <p class="help-block">Example block-level help text here.</p>
 		</div>
 
 		<div class="form-group">
-		<select class="form-control" name="usuario" id="id_usuario">
-		  <option>si</option>
+		<select class="form-control" name="usuario" id="id_usuario" value="{{ FotografiaForm.usuario }}">
+		  <option>yes </option>
+		  <option>no---/option>
 		  <option>---</option>
 
-		</select>
-		</div> 
-
-
+		</select> 
+		</div>  -->
 
 
 		<p><input type='submit' class="btn btn-default" value='Registrar'/></p>

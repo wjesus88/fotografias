@@ -10,6 +10,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 
+
 def inicio(request):
 	fotos=Fotografia.objects.all()
 	return render_to_response('inicio.html',{'fotos':fotos},context_instance=RequestContext(request))
@@ -24,12 +25,16 @@ def nueva_fotografia(request):
 	if request.method=='POST':
 		formulario=FotografiaForm(request.POST,request.FILES)
 		print formulario
-		
+
 		if formulario.is_valid():
 			formulario.save()
 			return HttpResponseRedirect('/fotografias')
+
+			
 	else:
+		
 		formulario=FotografiaForm()
+		
 	return render_to_response('fotografiaform.html',{'formulario':formulario},context_instance=RequestContext(request))
 
 
@@ -53,19 +58,41 @@ def edit(request, id):
         {'action': 'update/' + id,
         'button': 'Update',
         'descripcion': foto.descripcion,
-        'titulo': foto.titulo
+        'titulo': foto.titulo,
+        'imagen': foto.imagen
         },context_instance=RequestContext(request)
     )
 
 
+# def update(request, id):
+#     foto = Fotografia.objects.get(id=id)
+    
+#     foto.descripcion = request.POST['descripcion']
+#     foto.titulo = request.POST['titulo']
+#     foto.imagen = request.FILES['imagen']
+
+    
+
+#     print foto.imagen
+#     foto.save()
+#     return HttpResponseRedirect('/fotografias')
+    #return list(request, message='foto')
+
 def update(request, id):
-    foto = Fotografia.objects.get(id=id)
- 
-    foto.descripcion = request.POST["description"]
-    foto.titulo = request.POST["titulo"]
-    print foto
-    #foto.save()
-    return list(request, message='foto')
+	foto = Fotografia.objects.get(pk=id)
+	
+	if request.method == 'POST':
+		form = FotografiaForm(request.POST, instance=foto)
+
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/fotografias/')
+
+	else:
+		form = FotografiaForm(instance=foto)
+		
+	context = RequestContext(request, {'form': form, 'id': id})
+	return render_to_response('updatedfotografia.html', context)	
 
 
 def contacto(request):

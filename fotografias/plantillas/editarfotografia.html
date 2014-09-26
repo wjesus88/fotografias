@@ -7,21 +7,26 @@
 		<div class="col-md-1 column">
 		</div>
 		<div class="col-md-4 column">
-			<form role="form" id="formulario" action="/fotografia/{{ action }}/" method="get">
+			<form role="form" id="formulario" action="/fotografia/{{ action }}/" method="post">
 				{% csrf_token %}
-				{{formulario.as_p}}
-
-
+							
 			
-		<!-- 		<div class="form-group">
+ 				<div class="form-group">
 					<label for="exampleInputEmail1"> Titulo:</label>
-					<input  class="form-control" name="{{ titulo }}" value="{{ titulo }}"><br />
+					<input  class="form-control" name="titulo" value="{{ titulo }}"><br />
 				</div>
 
 				<div class="form-group">
 					<label for="exampleInputEmail1"> Description:</label>
-					<input  class="form-control" name="{{ descripcion }} " value="{{ descripcion }}"><br />
-				</div> -->
+					<input  class="form-control" name="descripcion" value="{{ descripcion }}"><br />
+				</div>
+
+				<div class="form-group">
+				    <label for="exampleInputFile">File input</label>
+				    <input type="file" id="id_imagen" name="imagen"  >
+				 
+				</div>
+		
 
 				<div class="form-group">
 					<input type=submit value="{{ button }}">					
