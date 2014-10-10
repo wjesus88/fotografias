@@ -22,3 +22,15 @@ nav ul li a{
 .par { 
 	background-color:#5ACC5A; 
 }
+
+#publicidad
+	{
+		background-color: #DCDFDF;
+		border:outset 0px #ebe4eb;
+		-moz-border-radius: 26px;
+		-webkit-border-radius: 26px;
+		border-radius: 26px;
+		-moz-box-shadow: 8px 7px 8px #000000;
+		-webkit-box-shadow: 8px 7px 8px #000000;
+		box-shadow: 8px 7px 8px #000000;
+	}

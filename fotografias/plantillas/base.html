@@ -11,61 +11,19 @@
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/thumbnail-gallery.css'>
 <link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/theme.css'>
 
-
-
 </head>
 <body>
-
-	<!-- <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner"> -->
-	<!-- <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"> -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">      
-
+ 	<!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                
-            	<ul class="nav navbar-nav">       
-		        	<li><a href='/'>Inicio</a></li>		        
-		            <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-		            <ul class="dropdown-menu">
-		            	<li><a href="#">Action</a></li>
-		            	<li><a href="#">Another action</a></li>
-		            	<li><a href="#">Something else here</a></li>
-		            	<li><a href="#">Separated link</a></li>
-		            	<li><a href="#">One more separated link</a></li>
-		            </ul>
-		        	</li>
-		        	<li><a href='/'>Inicio</a></li>
-					<li><a href='/usuarios'>usuarios registrados</a></li>
-					<li><a href="/fotografias">fotografias</a></li>
-		        	<li><a href='/usuarios'>Usuarios registrados</a></li>
-		        	<li><a href='/recetas'>Recetas</a></li>
-		        	<li><a href="/contacto">Contacto</a></li>
-		        	    
-		        	<li class="active"><a href="#">Customize</a></li>
-		        </ul>
-
-            </div>
-            <!-- /.navbar-collapse -->
+         
         </div>
-    </nav>
-
-	<!--<aside>
-            <div id="slides">
-                <img src="images/slide1.jpg" title="Slide1">
-                <img src="images/slide2.jpg" title="Slide2">
-            </div>
-    </aside> -->
-	<!-- </header> -->
+    </nav> -->
 
 	<section class='contenido'>
 		<article class="container">			
 			{% block contenido %}{% endblock %}
 		</article>
 	</section>
-	
 
 	<footer>
         <article>
@@ -78,11 +36,8 @@
                 <canvas id="lienzo" width="300px" height="210px">
                 </canvas>
             </section>
-        </article> 
-
-
-	    <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
-	
+        </article>
+	    <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>	
     </footer>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<title>Fotografia {% block titulo %}{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='{{ STATIC_URL }}css/base.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}css/estructura.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/bootstrap.min.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/thumbnail-gallery.css'>
+<link rel='stylesheet' href='{{ STATIC_URL }}bootstrap/css/theme.css'>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">  
+	
+			<!--<div class="usuario">
+				<figure class="avatar">
+					<img src="../imagenes/foto.jpg"/>
+				</figure>
+			</div> -->		
+
+        <div class="container">
+    
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                
+            	<ul class="nav navbar-nav">       
+		        	<li><a href='/'>Inicio</a></li>		        
+		            <li class="dropdown">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+		            	<li><a href="#">Action</a></li>
+		            	<li><a href="#">Another action</a></li>
+		            	<li><a href="#">Something else here</a></li>
+		            	<li><a href="#">Separated link</a></li>
+		            	<li><a href="#">One more separated link</a></li>
+		            </ul>
+		        	</li>
+		        	<li><a href='/'>Inicio</a></li>
+					<li><a href='/usuarios'>usuarios registrados</a></li>
+					<li><a href="/fotografias">fotografias</a></li>
+		        	<li><a href='/usuarios'>Usuarios registrados</a></li>
+		        	<li><a href='/recetas'>Recetas</a></li>
+		        	<li><a href="/contacto">Contacto</a></li>
+		        	    
+		        	<li class="active"><a href="#">Customize</a></li>
+		        </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+
+	<section class='contenido'>
+		<article class="container">			
+			{% block contenido %}{% endblock %}
+		</article>
+	</section>
+	
+
+	<footer>
+        <article>
+            <section class="elementoPie">                        
+                </section>
+                <section class="elementoPie" id="busquedasRecientes">
+                <h2>Última búsqueda</h2>
+            </section>
+            <section class="elementoPie">
+                <canvas id="lienzo" width="300px" height="210px">
+                </canvas>
+            </section>
+        </article> 
+
+
+	    <p>Registrado {{ fotografia.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{fotografia.usuario}}</p>
+	
+    </footer>
+</body>
+</html>
