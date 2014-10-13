@@ -1,4 +1,4 @@
-{% extends 'menu.html' %}
+{% extends 'base.html' %}
 
 {% block titulo %} Fotografias {% endblock %}
 
@@ -16,9 +16,7 @@
 {% block contenido %}
 <button type="button" class="btn btn-success"><a href="/fotografia/nueva">Agregar una fotografia</a></button>
 
-
 <div class="container">
-
 
    <div class="row clearfix">
 
@@ -29,7 +27,7 @@
                       <!-- <div class="col-md-4"> -->
                         <div class="thumbnail" >
 
-          	                <a href='{% url principal.views.detalle_fotografia dato.id %}'>
+          	                <a href='{% url "principal.views.detalle_fotografia" dato.id %}'>
           	                    <img style="width: 300px; height: 200px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
           	                </a>
 

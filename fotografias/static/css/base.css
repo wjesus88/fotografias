@@ -1,36 +1,35 @@
 /* algunos ejemplos con CSS */
-body, header, footer, div, h1, h2, ul, li, a { 
-	margin:0; padding:0;
+body,
+header,
+footer,
+div,
+h1,
+h2,
+ul,
+li,
+a {
+  margin: 0 padding 0;
 }
-header {
-	background-color:#008500;
-	/*#DDDDDD*/
-	color:#ffffff;
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  margin: 10px;
 }
-nav ul li a{
-	text-decoration:none;
-	color:#fff;
-	margin:10px;
+.activo,
+font-weight: bold,
+.impar {
+  background-color: #90ee90;
 }
-.activo { 
-  font-weight: bold; 
-
+.par {
+  background-color: #5acc5a;
 }
-.impar { 
-	background-color:#90EE90; 
+#publicidad {
+  background-color: #dcdfdf;
+  border: outset 0px #ebe4eb;
+  -moz-border-radius: 0 0 0.8em 0.9em;
+  -webkit-border-radius: 0 0 0.8em 0.9em;
+  border-radius: 0 0 0.8em 0.9em;
+  -moz-box-shadow: 8px 7px 8px #000;
+  -webkit-box-shadow: 8px 7px 8px #000;
+  box-shadow: 8px 7px 8px #000;
 }
-.par { 
-	background-color:#5ACC5A; 
-}
-
-#publicidad
-	{
-		background-color: #DCDFDF;
-		border:outset 0px #ebe4eb;
-		-moz-border-radius: 26px;
-		-webkit-border-radius: 26px;
-		border-radius: 26px;
-		-moz-box-shadow: 8px 7px 8px #000000;
-		-webkit-box-shadow: 8px 7px 8px #000000;
-		box-shadow: 8px 7px 8px #000000;
-	}
