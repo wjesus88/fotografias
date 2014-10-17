@@ -6,7 +6,7 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-    background:#649CB7;
+    background:#d8d8d8;
   
 }
 
@@ -16,12 +16,17 @@ body {
     margin-bottom: 30px;
 }
 
-@font-face{
+/*@font-face{
     font-family: "Museo"; 
     src: url("{{STATIC_URL}}media/Museo700-Regular.otf");
-}
+}*/
 
-
+@font-face{
+  font-family:'Droid Serif';
+  font-style:normal;
+  font-weight:400;
+  src:local('Droid Serif'),local('DroidSerif'),url(http://fonts.gstatic.com/s/droidserif/v6/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+ }
 
 
 footer {
