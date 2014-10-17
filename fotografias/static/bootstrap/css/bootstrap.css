@@ -451,7 +451,7 @@ h2,
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 16px;/*Cambiado*/
 }
 h4,
 .h4 {
@@ -4401,7 +4401,7 @@ a.list-group-item.active > .badge,
 }
 .thumbnail {
   display: block;
-  padding: 4px;
+  /*padding: 4px;*/
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fff;
