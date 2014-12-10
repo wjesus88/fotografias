@@ -46,6 +46,19 @@
 
                                 </a>
                             </div>
+                            <div class="votos">
+                              <a class="up" href="#">up</a>
+                              <span class="total">156</span>
+                              <a class="down" href="#">down</a>
+                            </div>
+                            <div class="datos">
+                              <a class="comentarios" href="#">
+                                10
+                              </a>
+                              <a class="estrellita" href="#"></a>
+                            </div>
+                          </div>
+                            <div class="acciones">
                             <td><a href='/fotografia/delete/{{ dato.id }}'>Eliminar</a></td>
                             <td><a href='/fotografia/edit/{{ dato.id }}'>Editar</a></td>
                             <td><a href='/fotografia/update/{{ dato.id }}'>Editar</a></td>
@@ -89,6 +102,34 @@
 
     </div>
 </div>
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+<script type="text/javascript">
+    
+
+    //alert('ff ');
+    $(function(){
+
+    $('.up').on('click', mostrarFormulario);
+
+    function mostrarFormulario(){
+
+          $('.total').each(function (key, val) {
+            
+            //var productId = val[key].innerHTML;
+            //alert(productId);
+            console.log(key+" "+val.innerHTML);
+            alert(key);
+
+          });
+    }
+              
+
+    });
+
+
+
+</script>
 
 
 {% endblock %}
