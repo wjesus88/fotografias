@@ -1,20 +1,17 @@
-{% extends 'base.html' %}
+
 {% block titulo %}Nueva fotografia {% endblock %}
 {% block encabezado %}
 {% endblock %}
 
 
 {% block contenido %}
-	<form role="form" class="form-contact" id='formulario' method='post' enctype="multipart/form-data" action="">
+	<form role="form" class="form-contact" id='formulario' method='post' enctype="multipart/form-data" action='{% url "principal.views.nueva_fotografia" %}'>
 	 
 		{% csrf_token %}
 		{{formulario.as_p}}
 
-		
-
 		 
-<!-- 
- 		<div class="form-group">
+<!-- <div class="form-group">
 		<label for="titulo">titulo</label>
 		<input class="form-control"  type="text" name="titulo" id="id_titulo" value="{{ FotografiaForm.titulo }}"/>
 		</div>

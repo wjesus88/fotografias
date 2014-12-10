@@ -1,3 +1,17 @@
+gris_texto=#7A7A7A
+gris_oscuro = #444
+
+@font-face 
+	font-family 'iconitos'
+	src url('../fonts/icomoon.eot')
+	src url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.svg#icomoon') format('svg')
+	font-weight normal
+	font-style normal
+
+
 /* algunos ejemplos con CSS */
 body, header, footer, div, h1, h2, ul, li, a 
 	margin 0 padding 0
@@ -29,4 +43,272 @@ nav ul li a
 		-moz-box-shadow 8px 7px 8px #000000
 		-webkit-box-shadow 8px 7px 8px #000000
 		box-shadow 8px 7px 8px #000000
+
+
+/*boton thumbail*/
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Lobster)
+* 
+	box-sizing border-box
+
+
+
+.buttont
 	
+	width 70px
+	height 30px
+	background #916859
+	position relative
+	text-decoration none
+	/*top 58%*/
+	/*left 50%
+	margin-left -80px
+	margin-top -75px*/
+	border-radius 10px
+	text-align center
+	line-height 25px
+	border-bottom 5px solid #715146
+	font-family 'Lobster',cursive
+	font-size 15px
+	color #a47a6a
+	text-shadow -1px -1px 1px rgba(255, 255, 255, 0.3), 1px 1px 1px rgba(0, 0, 0, 0.3)
+	transition all 0.1s linear 0s
+	box-shadow 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.2)
+
+// .buttont span 
+// 	font-family 'Lobster', cursive
+// 	font-size: 12px
+// 	color: #BDDAD8
+// 	text-shadow 3px 3px #357F7A
+
+.buttont:active
+	border-bottom 5px solid #715146
+	transition all 0.1s ease-in 0s
+	box-shadow 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.1)
+
+.buttont:hover
+	
+	/*background #8b6355*/
+	border-bottom 3px solid #715146
+	background-color #8b6355 !important
+
+
+
+// #navi ul 
+// 	list-style none
+// 	padding 0px
+
+// #navi ul li 
+// 	white-space nowrap
+
+// #navi ul li a 
+// 	display inline-block
+// 	text-decoration none
+// 	font-size: 20px
+// 	color #fff
+// 	height 63px
+// 	line-height 63px
+// 	padding-right 20px
+// 	width 50%
+
+// #navi ul li a .icon
+// 	display inline-block
+// 	width 48px
+// 	margin 8px 9px 0 5px
+// 	-webkit-transition all 0.2s ease-out
+// 	-moz-transition all 0.2s ease-out
+// 	-ms-transition all 0.2s ease-out
+// 	-o-transition all 0.2s ease-out
+// 	transition all 0.2s ease-out
+
+// #navi ul li a .navtitle 
+// 	position relative
+// 	top 17px
+
+
+// #navi ul li a:hover 
+// 	background-color red
+// 	color red
+
+// #navi ul li a.active-tab
+// 	background-color pink
+// 	color #f80
+
+// #navi ul li a.active-tab .icon 
+// 	color #f80 /* dammit */
+
+
+
+// #navi:hover
+// 	color green
+// 	background-color green
+// 	max-width: 150px;
+// 	-webkit-box-shadow: 0 0 10px #995200;
+// 	-moz-box-shadow: 0 0 10px #995200;
+// 	box-shadow: 0 0 10px #995200;
+
+/*caption*/
+
+.caption h3 
+	font-size 14px
+	font-family 'Lobster','cursive'
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed)
+
+.caption p
+	font-size 14px
+	font-family 'Open Sans Condensed','cursive',font-weight 200 
+
+/**dandole un estilos de pinterest*/
+.wrapper
+	width 100%
+	max-width 1100px
+	min-width 800px
+	margin 50px auto
+
+.columns
+	-webkit-column-count 4
+	-webkit-column-gap 10px
+	-webkit-column-fill auto
+	-moz-column-count 4
+	-moz-column-gap 10px
+	-moz-column-fill auto
+	column-count 4
+	column-gap 15px
+	column-fill auto
+
+.pin
+	display inline-block
+	background #FEFEFE
+	border 2px solid #FAFAFA
+	box-shadow 0 1px 2px rgba(34, 25, 25, 0.4)
+	margin 0 2px 15px
+	-webkit-column-break-inside avoid
+	-moz-column-break-inside avoid
+	column-break-inside avoid
+	padding 15px
+	padding-bottom 5px
+	background -webkit-linear-gradient(45deg, #FFF, #F9F9F9)
+	opacity 1	
+	-webkit-transition: all .2s ease
+	-moz-transition: all .2s ease
+	-o-transition: all .2s ease
+	transition: all .2s ease
+
+	.acciones
+		border-top 3px solid gris_texto
+		text-decoration none
+		overflow visible
+		width 100%
+		height auto
+
+		.votos
+			float left
+
+			.down
+			.up
+				text-decoration none
+				&:before
+					font-family "iconitos"
+					font-size 1.5em
+					vertical-align middle
+
+			.down
+				color red
+				&:before
+					content "\e602"
+			.up
+				color green
+				&:before
+					content "\e603"
+
+		.datos
+			float right
+
+			.comentarios
+				background gris_oscuro
+				border-radius 3px
+				color white
+				margin 0 1em 0 0
+				padding 2px 5px
+				text-decoration none
+
+			.estrellita
+				text-decoration none
+				&:after
+					color #FCB92D
+					content "\e601"
+					font-family "iconitos"
+					font-size 1.1em
+
+
+//.pin img 
+// 	width 100%
+//	border-bottom 10px solid #ccc
+// 	padding-bottom: 15px
+// 	margin-bottom: 5px
+
+
+// .pin p 
+// 	font 12px/18px Arial, sans-serif
+// 	color #333
+// 	margin 0
+
+@media (min-width 960px) 
+	.columns 
+		-webkit-column-count 4
+		-moz-column-count 4
+		column-count 4
+
+// @media (min-width 1170px) 
+// 	.columns 
+// 		-webkit-column-count 4
+// 		-moz-column-count 4
+// 		column-count 4
+
+// @media (min-width 1733px) 
+// 	.columns 
+// 		-webkit-column-count 6
+// 		-moz-column-count 6
+// 		column-count 6
+
+@media (min-width 1953px) 
+	.columns 
+		-webkit-column-count 5
+		-moz-column-count 5
+		column-count 5
+
+// @media (min-width 2610px) 
+// 	.columns 
+// 		-webkit-column-count 6
+// 		-moz-column-count 6
+// 		column-count 6
+
+@media (min-width 2300px) 
+	.columns 
+		-webkit-column-count 5
+		-moz-column-count 5
+		column-count 5
+
+@media (min-width 2500px) 
+	.columns 
+		-webkit-column-count 6
+		-moz-column-count 6
+		column-count 6
+
+
+@media (min-width 2800px) 
+	.columns 
+		-webkit-column-count 6 
+		-moz-column-count 6
+		column-count 6
+
+.columns:hover .pin:not(:hover) 
+	opacity 0.4
+
+/*probando el rsponsive de bootstrap 3.0*/
+.col
+	background-color #AAA
+	border 2px solid #444

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.0.3.min.js"></script>
+
 {% block titulo %} Fotografias {% endblock %}
 
 {% block css %}
@@ -15,80 +18,307 @@
 
 {% block contenido %}
 <button type="button" class="btn btn-success"><a href="/fotografia/nueva">Agregar una fotografia</a></button>
+<button type="button" class="btn btn-success"><a href="/album/nueva">Agregar un album</a></button>
+<a class="publicar" onclick="mostrar()" > Publicar </a> 
+<!-- <input type="button"  class="publicar" value="Enviar" onclick="mostrar()">  -->
 
-<div class="container-fluid">
 
+
+<!-- <form action="">
+    <p>
+      <label for="titulo">Título</label>
+      <input placeholder="Ingrese el título" id="titulo" type="text" name="titulo"></p>
+    <p>
+      <label for="autor">Autor</label>
+      <input id="autor" type="text" name="autor"></p>
+    <p>
+      <label for="tag">Tag</label>
+      <input id="tag" type="text" name="tag"></p>
+      <input value="Publicar" type="submit" />
+</form> -->
+
+
+<nav>
+    <ul>
+      <li ><a href="/"></a></li>
+    
+        {% for cat in album %}
+          <li><a href="{% url "album" cat.pk %}">{{cat}}</a></li>
+        {% endfor %}
+      
+    </ul>
+</nav>
+
+
+
+
+<div id="carga">
+</div>
+
+<div class="container wrapper">
    <div class="row clearfix">
-
-        <div class="col-md-10 column">
-        {% for dato in datos %}
-              <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-              <!-- <div class="col-md-4 column"> -->
-                  <!-- <div class="row"> -->
-                        <!-- <div class="col-md-12 column"> -->
-                        <div class="thumbnail" >
-                            <a href='{% url principal.views.detalle_fotografia dato.id %}'>
+        <div class=" col-sm-10 column">    
+            <div class="columns">            
+                {% for dato in datos %}                 
+                        <div class="pru">
+                          
+                        </div>               
+                        <div class="thumbnail pin" >                 
+                            <a href='{% url "principal.views.detalle_fotografia" dato.id %}'>
                                 <img style="width: 300px; height: 200px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
                             </a>
 
+                            <!--<div id="navi">
+                              <ul>
+                                  <li>
+                                    <a href="" onmouseover="document.getElementById('home').src='http://www.iconsdb.com/icons/preview/color/FF8800/home-4-l.png'" onmouseout="document.getElementById('home').src='http://www.iconsdb.com/icons/preview/white/home-4-l.png'">
+                                    <img src="http://www.iconsdb.com/icons/preview/white/home-4-l.png" class="icon" id="home" />
+                                    <span class="navtitle">Home</span>
+                                   </a>
+                                  </li>
+                              </ul>                   
+                            </div> -->  
                             <div class="caption" style="word-wrap: break-word">
+                                <a href="#"><div class="buttont">Give</div></a><br>
                                 <h3>
                                   {{dato.titulo}}
                                 </h3>
                                 <p>
                                   {{dato.descripcion}}
                                 </p>
-
-                                <a class="details with-icn js-details" href="/PeliculasFaiIs/status/520943757395763200">
-                                  <span class="expand-stream-item js-view-details">
-                                    ver foto
-                                  </span>
-
-                                </a>
                             </div>
-                            <td><a href='/fotografia/delete/{{ dato.id }}'>Eliminar</a></td>
-                            <td><a href='/fotografia/edit/{{ dato.id }}'>Editar</a></td>
-                            <td><a href='/fotografia/update/{{ dato.id }}'>Editar</a></td>
-                            <button type="button" class="btn btn-success btn-lg">Success</button>
-                            <button type="button" class="btn btn-default btn-lg">
-                                <input type="hidden" value="{{alert.id}}" name="alert_id">
-                                <span class="glyphicon glyphicon-star"></span> eliminar
-                            </button>
+                            <!-- los votos -->
+                    
 
-                        </div>
+                            <div class="acciones">
+                              <div class="votos">
+                                <a class="down" href="{% url "minus" dato.pk %}"></a>
+                                <span class="total"> {{dato.votos}} {{request.user}} </span>  
+                       
+                                <a class="ids" href="#"> {{dato.id}} </a>  
+
+                                <a class="up" href="#"></a>
+                                <!-- {% url "plus" dato.pk %} -->
+                              </div>
+
+                              <p class="datos_item">
+                                
+                                <span class="fecha_item">Hace <strong>{{dato.tiempo_registro|timesince}}</strong> min</span>
+                                <a class="guardar_item" href="#"></a>
+                              </p>
+
+                              <!-- los comentarios -->
+                              <div class="datos">
+                                <a class="comentarios" href="#">
+                                  10
+                                </a>
+                                <a class="estrellita" href="#">
+                                  *
+                                </a>
+                              </div>
+                            </div>
+                            <div>
+                             <td><a href='/fotografia/delete/{{ dato.id }}'>Eliminar</a></td>
+                              <td><a href='/fotografia/edit/{{ dato.id }}'>Editar</a></td>
+                              <td><a href='/fotografia/update/{{ dato.id }}'>Editar</a></td>                            
+                            </div>
+                        </div>      
                   <!-- </div> -->
-              </div>
-
-        {% endfor %}            
+                {% endfor %}
+            </div>
         </div>
       
 
-        <div class="col-md-2 column" id="publicidad">
+        <div class="col-sm-2 column caption" id="publicidad">
           <br>
+          <aside id="bienvenida">
+              {% if not request.user.is_authenticated %}
+              <h2>Hola, registrate!</h2>
+              <p>Es importante registrarte porque LOL!</p>
+              <a id="registro" href="#">Registrate acá</a>
+              <p id="mensaje_registro">En serio, registrate por favor</p>
+              {% else %}
+                  Hola {{request.user}}
+              {% endif %}
+          </aside>
 
-          <div class="thumbnail" >              
-              <img style="width: 300px; height: 200px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
-              <p>
+          <div class="thumbnail " >              
+              <img style="width: 300px; height: 200px;" src="" alt="">
+              <p >
               Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. 
               </p>              
           </div>
-
+<!--
           <div class="thumbnail"  id='referencia'>
             <img  style="height: auto;" class="img-responsive" class="img-rounded" src='{{MEDIA_URL}}{{fotografia.imagen}}'>
           </div>
-          <div class="thumbnail"  id='referencia'>
+           <div class="thumbnail"  id='referencia'>
             <img  style="height: auto;" class="img-responsive" class="img-rounded" src='{{MEDIA_URL}}{{fotografia.imagen}}'>
-          </div>
+          </div> -->
           <p>
           Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
           </p>    
-        </div>
-        
-
- 
-
+        </div> 
     </div>
 </div>
 
+
+<div class="row">
+  <div class="col col-sm-10">
+  Esta columna siempre ocupa 8
+    <div class="row">
+      {% for dato in datos %} 
+        <div class="col col-sm-3 thumbnail">
+            <a href='{% url "principal.views.detalle_fotografia" dato.id %}'>
+              <img style="width: 300px; height: 200px;" src="{{MEDIA_URL}}{{dato.imagen}}" alt="">
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  <div class="col col-sm-2">
+  Esta columna siempre ocupa 2
+  </div>
+  
+
+</div>
+
+
+{% block javascript %}
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/form.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+  $('.publicar').on('click',mostrarFormulario);
+
+   function mostrarFormulario(){
+
+      $('#carga').slideToggle("slow",function(){ $("#carga").load('/fotografia/nueva/'); });
+    }
+
+  $('#carga').on('submit',procesarFormulario);
+
+  function procesarFormulario(ev){
+      //alert("jjjj");  
+      //ev.preventDefault();
+      $("#carga").html("Error en el Servidor");
+
+
+      $.ajax({
+              type:"POST",
+              url:"/fotografia/nueva/",
+              dataType:"json",
+              async:true,
+              data:{
+                csrfmiddlewaretoken:"{{ csrf_token }}",
+              },            
+      });
+      $('#carga').slideUp();
+  }
+
+
+  function crearContador(valorInicial){
+    var contador=valorInicial || 0;
+    return{
+        up: function(){
+          return ++contador;
+        },
+        down: function(){
+          return --contador;
+        }
+    };
+  };
+
+
+  function traerid(valorInicial){
+    var valor=valorInicial || 0;
+    return valor;  
+    };   
+
+
+
+      $('.ids').each(function(a, elemx) {
+          var cont = traerid(elemx.innerHTML);
+
+          //alert(cont[0]);
+
+          $(elemx)
+           
+              .on('click', function(ev) {
+                ev.preventDefault(); 
+                alert(cont);
+
+              });
+       });    
+
+
+
+ 
+
+  $('.total').each(function(i, elem) {
+      var contTotal = crearContador(elem.innerHTML);
+      
+
+
+      $(elem)
+        .siblings('.up')
+          .on('click', function(ev) {
+            ev.preventDefault();   
+   
+            var subida = contTotal.up();
+            alert(subida);  
+
+                  $('.ids').each(function(i, elem) {
+                      var cont = traerid(elem.innerHTML);
+
+                      $(elem).on('change', function(ev) {
+                            ev.preventDefault(); 
+                            alert('cont');
+
+                      });
+                   });    
+            
+
+       
+            $.ajax({
+              type:"POST",
+              url:"/plus/17",
+              dataType:"json",
+              async:true,
+              data:{
+                csrfmiddlewaretoken:"{{ csrf_token }}",
+              },            
+            });
+            $(elem).html(subida);
+          })
+
+        .siblings('.down')
+          .on('click', function(ev){
+            ev.preventDefault();
+            var bajada = contTotal.down();
+            $.ajax({
+              type:"POST",
+              url:"/minus/17",
+              dataType:"json",
+              async:true,
+              data:{
+                csrfmiddlewaretoken:"{{ csrf_token }}",
+              },            
+            });
+            $(elem).html(bajada);
+            //$(elem).html(contTotal.down());
+          });
+  });  
+
+});
+</script>
+
+
+{% endblock javascript %}
 
 {% endblock %}
