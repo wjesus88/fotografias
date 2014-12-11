@@ -35,6 +35,13 @@ nav
 			text-shadow 1px 1px 0px black
 			float right
 
+			&:before
+				content "\e600"
+				display inline-block
+				font-family "iconitos"
+				margin 0 3px 0 0
+				text-shadow none
+
 	.usuario
 		position absolute
 		top 8px
@@ -51,11 +58,21 @@ nav
 
 		.flechita			
 			background naranja
-			color red
+			color white
 			display block
-			padding 3px
+			padding 2px
 			position absolute
 			right 0
 			top 10px
 			text-align right
+			text-decoration none			
 			width 50%
+			z-index 0
+
+			&:after
+				content "\e602"
+				display block
+				font-family "iconitos"
+				margin 1px 0 0 1px
+				text-shadow 1px 1px 0px black
+

@@ -1,13 +1,17 @@
-from principal.models import Fotografia,Comentario
-from principal.forms import FotografiaForm,ContactoForm
+from principal.models import Fotografia,Comentario,Album
+from principal.forms import FotografiaForm,ContactoForm,AlbumForm
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+from models import *
+from django.template.context import RequestContext
+from django.template.loader import get_template 
+from django.template import Context
 
-from django.template import RequestContext
 from django.core.mail import EmailMessage
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.template.loader import get_template 
 
 
 
@@ -16,20 +20,53 @@ def inicio(request):
 	return render_to_response('inicio.html',{'fotos':fotos},context_instance=RequestContext(request))
 
 
+def album(request,id_album):
+	albums = Album.objects.all()
+	cat = get_object_or_404(Album,pk = id_album)
+    #cat = Categoria.objects.get(pk = id_categoria)
+    
+	foto = Fotografia.objects.filter(album = cat)
+
+	return render_to_response('fotografias.html',{'datos':foto,'album':albums},context_instance=RequestContext(request))
+
+	#template = "fotografia.html"
+	#return render_to_response(template,locals())
+
+	#,{'album':albums},context_instance=RequestContext(request))
+
+
+def nueva_album(request):
+	if request.method=='POST':
+		album=AlbumForm(request.POST,request.FILES)		
+
+		if album.is_valid():
+			album.save()
+			return HttpResponseRedirect('/fotografias')
+			
+	else:
+		
+		album=AlbumForm()
+		
+	return render_to_response('albumform.html',{'album':album},context_instance=RequestContext(request))
+
+
+
+
 def lista_fotografias(request):
-	fotografias=Fotografia.objects.all()
-	return render_to_response('fotografias.html',{'datos':fotografias},context_instance=RequestContext(request))
+	fotografias=Fotografia.objects.all().order_by('-tiempo_registro')
+	albums=Album.objects.all()
+	return render_to_response('fotografias.html',{'datos':fotografias,'album':albums},context_instance=RequestContext(request))
 
 
 def nueva_fotografia(request):
 	if request.method=='POST':
-		formulario=FotografiaForm(request.POST,request.FILES)
-		print formulario
+		formulario=FotografiaForm(request.POST,request.FILES)		
 
 		if formulario.is_valid():
+			formulario=formulario.save(commit=False)
+			formulario.usuario=request.user
 			formulario.save()
 			return HttpResponseRedirect('/fotografias')
-
 			
 	else:
 		
@@ -110,4 +147,16 @@ def contacto(request):
 
 	return render_to_response('contactoform.html',{'formulario':formulario},context_instance=RequestContext(request))
 
+@login_required
+def minus(request,id_enlace):
+	voto=Fotografia.objects.get(pk=id_enlace)
+	voto.votos=voto.votos-1
+	voto.save()
+	return HttpResponseRedirect("/fotografias/")
 
+@login_required
+def plus(request,id_enlace):
+	voto=Fotografia.objects.get(pk=id_enlace)
+	voto.votos=voto.votos+1
+	voto.save()
+	return HttpResponseRedirect("/fotografias/")

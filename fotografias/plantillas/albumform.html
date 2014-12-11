@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block titulo %}Nueva fotografia {% endblock %}
+{% block encabezado %}
+{% endblock %}
+
+
+{% block contenido %}
+	<form role="form" class="form-contact" id='album' method='post' enctype="multipart/form-data" action="">
+	 
+		{% csrf_token %}
+		{{album.as_p}}
+
+		<p><input type='submit' class="btn btn-default" value='Registrar'/></p>
+	</form>
+{% endblock %}

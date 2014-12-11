@@ -2,12 +2,21 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Album(models.Model):
+    titulo = models.CharField(max_length = 140)
+    
+    def __unicode__(self):
+        return self.titulo
+
 class Fotografia(models.Model):
 	titulo = models.CharField(max_length=100, verbose_name='Título', unique=True)
 	descripcion = models.TextField(help_text='Redacta la descripcion')	
 	imagen = models.ImageField(upload_to='fotografias', verbose_name='Imágen')
 	tiempo_registro = models.DateTimeField(auto_now=True)
 	usuario = models.ForeignKey(User)
+	votos=models.IntegerField(default=0)
+	album = models.ForeignKey(Album)
+
 	
 	def __unicode__(self):
 		return self.titulo
